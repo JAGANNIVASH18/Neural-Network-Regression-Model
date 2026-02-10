@@ -1,4 +1,4 @@
-# Developing a Neural Network Regression Model
+## EX:01 Neural-Network-Regression-Model
 
 ## AIM
 
@@ -10,7 +10,8 @@ Explain the problem statement
 
 ## Neural Network Model
 
-Include the neural network model diagram.
+<img width="954" height="633" alt="image" src="https://github.com/user-attachments/assets/8d9ac77c-869d-4d23-a4fe-49621970ff2a" />
+
 
 ## DESIGN STEPS
 
@@ -43,40 +44,70 @@ Plot the performance plot
 Evaluate the model with the testing data.
 
 ## PROGRAM
-### Name:
-### Register Number:
+### Name: JAGANNIVASH U M
+### Register Number: 212224240059
 ```python
 class NeuralNet(nn.Module):
     def __init__(self):
         super().__init__()
-        #Include your code here
-
-
-
+        super().__init__()
+        self.fc1 = nn.Linear(1, 8)
+        self.fc2 = nn.Linear(8, 10)
+        self.fc3 = nn.Linear(10, 1)
+        self.relu = nn.ReLU()
+        self.history = {'loss': []}
+  def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.relu(self.fc2(x))
+        x = self.fc3(x)  # No activation here since it's a regression task
+        return x
 # Initialize the Model, Loss Function, and Optimizer
-
-
-
+ai_brain = NeuralNet()
+criterion = nn.MSELoss()
+optimizer = optim.RMSprop(ai_brain.parameters(), lr=0.001)
 def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
-    #Include your code here
+    for epoch in range(epochs):
+        optimizer.zero_grad()
+        loss = criterion(ai_brain(X_train), y_train)
+        loss.backward()
+        optimizer.step()
 
-
-
+        ai_brain.history['loss'].append(loss.item())
+        if epoch % 200 == 0:
+            print(f'Epoch [{epoch}/{epochs}], Loss: {loss.item():.6f}')
 ```
 ## Dataset Information
 
-Include screenshot of the dataset
+<img width="600" height="578" alt="image" src="https://github.com/user-attachments/assets/7314a0e3-ef61-4f1e-a2e7-a16f12f34825" />
+
+
 
 ## OUTPUT
 
+<img width="314" height="448" alt="image" src="https://github.com/user-attachments/assets/82778078-89f8-4dc5-ad76-0ac76a2b60c5" />
+
+
+
+
+
+
+<img width="565" height="325" alt="Screenshot 2026-02-10 153104" src="https://github.com/user-attachments/assets/28d6fd1c-8446-4200-83a5-2bfb84fd1c27" />
+
 ### Training Loss Vs Iteration Plot
 
-Include your plot here
+<img width="961" height="671" alt="image" src="https://github.com/user-attachments/assets/9cdeb81d-dd2e-41e8-bdde-4978cdfca0ed" />
+
+
 
 ### New Sample Data Prediction
 
-Include your sample input and output here
 
-## RESULT
+<img width="1325" height="235" alt="image" src="https://github.com/user-attachments/assets/6279d3e2-cfaa-4182-8d66-07799610888a" />
 
-Include your result here
+
+
+
+## RESULT:
+
+Thus,the code was successfully executed  to develop a neural network regression model...
+
