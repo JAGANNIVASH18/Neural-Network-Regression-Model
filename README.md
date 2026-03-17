@@ -6,7 +6,26 @@ To develop a neural network regression model for the given dataset.
 
 ## THEORY
 
-Explain the problem statement
+Neural Network Regression
+
+A Neural Network Regression Model is a type of machine learning model used to predict continuous numerical values.
+
+Neural Network Basics
+A neural network consists of:
+
+Input layer → receives data
+
+Hidden layers → process information
+
+Output layer → produces final prediction
+
+In this model:
+
+Input: 1 neuron
+
+Hidden layers: 10 neurons → 20 neurons
+
+Output: 1 neuron
 
 ## Neural Network Model
 
